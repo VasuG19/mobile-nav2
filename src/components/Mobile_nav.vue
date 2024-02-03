@@ -154,6 +154,7 @@
         background: #1d1d1d;
         padding: 45px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 2vh; 
     }
 
     .menu ul ul li {
@@ -163,7 +164,7 @@
         align-items: center;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        padding: 2vh; 
+        padding: 1vh 0;
     }
 
     /* Adjust the positioning to ensure the submenu is visible */
