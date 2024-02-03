@@ -85,7 +85,7 @@
     .menu li {
         padding: 10px 0;
         display: flex;
-        flex-direction: column; /* Set the flex-direction to column */
+        flex-direction: column;
         align-items: center;
         cursor: pointer;
         transition: background-color 0.3s ease;
@@ -100,7 +100,7 @@
         font-weight: 600;
         text-decoration: none;
         transition: color 0.3s ease;
-        font-size: 5vw; /* Adjust as needed */
+        font-size: 5vw; 
         padding: 2vh 0; /* Added padding for better clickability */
         border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Add a border between each link */
     }
@@ -163,6 +163,7 @@
         align-items: center;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        padding: 2vh; 
     }
 
     /* Adjust the positioning to ensure the submenu is visible */
