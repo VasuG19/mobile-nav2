@@ -68,7 +68,7 @@
         left: -100%; /* Initially off-screen */
         width: 100%;
         height: 100%;
-        background: #1d1d1d;
+        background: rgb(46, 46, 46);
         color: white;
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
