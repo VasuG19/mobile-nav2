@@ -97,11 +97,11 @@
         display: block;
         width: 100%; /* Make the router-link fill the entire li area */
         color: inherit;
-        font-size: large;
         font-weight: 600;
         text-decoration: none;
         transition: color 0.3s ease;
-        padding: 10px; /* Added padding for better clickability */
+        font-size: 5vw; /* Adjust as needed */
+        padding: 2vh 0; /* Added padding for better clickability */
         border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Add a border between each link */
     }
 
