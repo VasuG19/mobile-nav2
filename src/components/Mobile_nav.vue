@@ -10,6 +10,10 @@
             const toggleMenu = () => {
                 // Toggle the menu visibility
                 menuVisible.value = !menuVisible.value;
+
+                // Toggle body overflow to prevent scrolling when the menu is open
+                const body = document.body;
+                body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
             };
 
             // Returning reactive data and functions to be used in the template
@@ -30,9 +34,9 @@
 
         <!-- Navigation links -->
         <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">About</router-link></li>
-            <li><router-link to="/third">Third</router-link></li>
+            <li @click="toggleMenu"><router-link to="/">Home</router-link></li>
+            <li @click="toggleMenu"><router-link to="/about">About</router-link></li>
+            <li @click="toggleMenu"><router-link to="/third">Third</router-link></li>
         </ul>
     </div>
 </template>
