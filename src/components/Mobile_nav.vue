@@ -1,41 +1,36 @@
 <script setup lang="ts">
-    import { ref } from 'vue'
-    import { RouterLink } from 'vue-router'
+    import { ref } from 'vue';
+    import { RouterLink } from 'vue-router';
 
     const menuVisible = ref(false);
+    const submenuVisible = ref(false);
 
     const toggleMenu = () => {
         menuVisible.value = !menuVisible.value;
+        submenuVisible.value = false;
 
         // Toggle body overflow to prevent scrolling when the menu is open
         const body = document.body;
         body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
 
-        // Close the menu automatically after 20 seconds if it is opened
-        if (menuVisible.value) {
-            setTimeout(() => {
-                closeMenu();
-            }, 20000); // 20 seconds in milliseconds
-        }
+    };
+
+    const toggleSubmenu = () => {
+        submenuVisible.value = !submenuVisible.value;
     };
 
     const closeMenu = () => {
         menuVisible.value = false;
+        submenuVisible.value = false;
         const body = document.body;
         body.style.overflow = 'auto';
     };
 
-    const handleKeyPress = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-            closeMenu();
-        }
-    };
 </script>
-
 
 <template>
     <!-- Push menu -->
-    <div role="menu" class="menu" :class="{ active: menuVisible }" @keydown.prevent="handleKeyPress">
+    <div role="menu" class="menu" :class="{ active: menuVisible }">
 
         <!-- Toggle button to show/hide the menu -->
         <div role="button" class="toggle" @click="toggleMenu" @keydown.space.prevent="toggleMenu">
@@ -47,10 +42,18 @@
             <li role="menuitem" @click="closeMenu"><router-link to="/">Home</router-link></li>
             <li role="menuitem" @click="closeMenu"><router-link to="/about">About</router-link></li>
             <li role="menuitem" @click="closeMenu"><router-link to="/third">Third</router-link></li>
+
+            <li role="menuitem" @click="toggleSubmenu">
+               <a> More </a>
+                <!-- Second-level menu -->
+                <ul v-show="submenuVisible" @click.stop>
+                    <li role="menuitem" @click="closeMenu"><router-link to="/about/history">History</router-link></li>
+                    <li role="menuitem" @click="closeMenu"><router-link to="/about/team">Team</router-link></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </template>
-
 
 <style>
     /* Styling for the push menu */
@@ -81,6 +84,7 @@
         align-items: center;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        position: relative; /* Add relative positioning for submenu */
     }
 
     /* Styling for the circular menu item links */
@@ -134,4 +138,40 @@
     .menu.active {
         left: 0;
     }
+
+    /* Styling for the second-level menu */
+    .menu ul ul {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        display: none;
+        width: 100%;
+        background: #1d1d1d;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu li:hover > ul {
+        display: block;
+    }
+
+    .menu ul ul li {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Adjust the positioning to ensure the submenu is visible */
+    .menu li {
+        position: relative;
+    }
+
+    .menu ul ul {
+        top: 0;
+        left: -10%;
+    }
+
 </style>
