@@ -35,7 +35,6 @@
             <li><router-link to="/third">Third</router-link></li>
         </ul>
     </div>
-
 </template>
 
 <style>
@@ -46,18 +45,11 @@
         left: -100%; /* Initially off-screen */
         width: 100%;
         height: 100%;
-        background: #333;
+        background: #1d1d1d;
         color: white;
         padding: 20px;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
         transition: left 0.3s ease-in-out;
-    }
-
-    /* Styling for the close button */
-    .close-btn {
-        cursor: pointer;
-        font-size: 20px;
-        margin-bottom: 10px;
     }
 
     /* Styling for the navigation links */
@@ -69,6 +61,27 @@
 
     .menu li {
         margin-bottom: 10px;
+    }
+
+    /* Styling for the circular menu item links */
+    .menu ul li a {
+        color: black;
+        border-radius: 50%;
+        transition: 0.5s;
+        cursor: pointer;
+        display: block; /* Ensures the anchor takes the full width of its container */
+        padding: 10px; /* Adds padding for better clickability */
+        text-decoration: none; /* Removes the default underline */
+    }
+
+    /* Styling for hover state of menu item links */
+    .menu ul li a:hover {
+        color: rgb(0, 161, 189);
+    }
+
+    /* Styling for active state of router links */
+    .menu ul li a.router-link-exact-active {
+        color: rgb(0, 161, 189);
     }
 
     /* Styling for the toggle button */

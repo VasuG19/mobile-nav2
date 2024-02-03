@@ -23,7 +23,7 @@
   
   <!-- Introduction section -->
   <div class='intro'>
-    <HelloWorld name="Mehtab Gill" />
+    <HelloWorld />
   </div>
 
   <!-- Router view for dynamic content -->
