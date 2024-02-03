@@ -1,5 +1,6 @@
 <script lang="ts">
     import { ref } from 'vue'
+    import { RouterLink } from 'vue-router'
 
     export default {
         setup() {
@@ -16,10 +17,18 @@
                 body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
             };
 
+            // Function to close the menu when a link is selected
+            const closeMenu = () => {
+                menuVisible.value = false;
+                const body = document.body;
+                body.style.overflow = 'auto';
+            };
+
             // Returning reactive data and functions to be used in the template
             return {
                 menuVisible,
                 toggleMenu,
+                closeMenu,
             };
         },
     };
@@ -33,11 +42,9 @@
         <div class="toggle" @click="toggleMenu"><ion-icon name="add-outline"></ion-icon></div>
 
         <!-- Navigation links -->
-        <ul>
-            <li @click="toggleMenu"><router-link to="/">Home</router-link></li>
-            <li @click="toggleMenu"><router-link to="/about">About</router-link></li>
-            <li @click="toggleMenu"><router-link to="/third">Third</router-link></li>
-        </ul>
+            <li @click="closeMenu"><router-link to="/">Home</router-link></li>
+            <li @click="closeMenu"><router-link to="/about">About</router-link></li>
+            <li @click="closeMenu"><router-link to="/third">Third</router-link></li>
     </div>
 </template>
 
@@ -57,18 +64,18 @@
     }
 
     /* Styling for the navigation links */
-    .menu ul {
+    .menu li {
         list-style: none;
         padding-top: 10vh;
-        margin: 0;
-    }
-
-    .menu li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin-bottom: 10px;
+        cursor: pointer; /* Add cursor pointer to indicate clickable */
     }
 
     /* Styling for the circular menu item links */
-    .menu ul li a {
+    .menu li a {
         color: black;
         border-radius: 50%;
         transition: 0.5s;
@@ -79,12 +86,12 @@
     }
 
     /* Styling for hover state of menu item links */
-    .menu ul li a:hover {
+    .menu li a:hover {
         color: rgb(0, 161, 189);
     }
 
     /* Styling for active state of router links */
-    .menu ul li a.router-link-exact-active {
+    .menu li a.router-link-exact-active {
         color: rgb(0, 161, 189);
     }
 
@@ -116,4 +123,5 @@
     .menu.active {
         left: 0;
     }
+
 </style>
