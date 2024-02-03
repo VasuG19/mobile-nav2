@@ -10,6 +10,13 @@ const toggleMenu = () => {
     // Toggle body overflow to prevent scrolling when the menu is open
     const body = document.body;
     body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
+
+    // Close the menu automatically after 20 seconds if it is opened
+    if (menuVisible.value) {
+        setTimeout(() => {
+            closeMenu();
+        }, 20000); // 20 seconds in milliseconds
+    }
 };
 
 const closeMenu = () => {
@@ -34,6 +41,7 @@ const closeMenu = () => {
         </ul>
     </div>
 </template>
+
 
 <style>
     /* Styling for the push menu */
