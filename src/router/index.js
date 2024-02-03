@@ -18,6 +18,16 @@ const router = createRouter({
       path: '/third',
       name: 'third',
       component: () => import('../views/ThirdView.vue')
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: () => import('../views/HistoryView.vue')
+    },
+    {
+      path: '/team',
+      name: 'team',
+      component: () => import('../views/TeamView.vue')
     }
   ]
 })

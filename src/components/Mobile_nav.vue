@@ -47,8 +47,8 @@
                <a> More <ion-icon name="arrow-down-outline"></ion-icon></a> 
                 <!-- Second-level menu -->
                 <ul v-show="submenuVisible" @click.stop>
-                    <li role="menuitem" @click="closeMenu"><router-link to="/">History</router-link></li>
-                    <li role="menuitem" @click="closeMenu"><router-link to="/">Team</router-link></li>
+                    <li role="menuitem" @click="closeMenu"><router-link to="/history">History</router-link></li>
+                    <li role="menuitem" @click="closeMenu"><router-link to="/team">Team</router-link></li>
                 </ul>
             </li>
         </ul>
