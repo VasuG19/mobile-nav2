@@ -44,11 +44,11 @@
             <li role="menuitem" @click="closeMenu"><router-link to="/third">Third</router-link></li>
 
             <li role="menuitem" @click="toggleSubmenu">
-               <a> More </a>
+               <a> More <ion-icon name="arrow-down-outline"></ion-icon></a> 
                 <!-- Second-level menu -->
                 <ul v-show="submenuVisible" @click.stop>
-                    <li role="menuitem" @click="closeMenu"><router-link to="/about/history">History</router-link></li>
-                    <li role="menuitem" @click="closeMenu"><router-link to="/about/team">Team</router-link></li>
+                    <li role="menuitem" @click="closeMenu"><router-link to="/">History</router-link></li>
+                    <li role="menuitem" @click="closeMenu"><router-link to="/">Team</router-link></li>
                 </ul>
             </li>
         </ul>
@@ -127,7 +127,7 @@
         z-index: 9999;
         color: rgb(0, 161, 189);
         transition: transform 1.25s;
-        font-size: 2em;
+        font-size: 3em;
     }
 
     .menu.active .toggle {
@@ -139,20 +139,16 @@
         left: 0;
     }
 
-    /* Styling for the second-level menu */
+   /* Styling for the second-level menu */
     .menu ul ul {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        display: none;
+        position: relative; /* Change position to relative */
+        top: 100%; /* Position below the parent menu item */
+        left: 0;
+        display: block; /* Always visible */
         width: 100%;
         background: #1d1d1d;
-        padding: 10px;
+        padding: 45px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .menu li:hover > ul {
-        display: block;
     }
 
     .menu ul ul li {
@@ -170,8 +166,9 @@
     }
 
     .menu ul ul {
-        top: 0;
-        left: -10%;
+        top: 100%; /* Position below the parent menu item */
+        left: 0;
     }
+
 
 </style>
