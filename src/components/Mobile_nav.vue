@@ -1,10 +1,13 @@
 <script setup lang="ts">
+    // Importing necessary functions from Vue
     import { ref } from 'vue';
     import { RouterLink } from 'vue-router';
 
+    // State variables for menu and submenu visibility
     const menuVisible = ref(false);
     const submenuVisible = ref(false);
 
+    // Function to toggle the main menu visibility
     const toggleMenu = () => {
         menuVisible.value = !menuVisible.value;
         submenuVisible.value = false;
@@ -12,20 +15,20 @@
         // Toggle body overflow to prevent scrolling when the menu is open
         const body = document.body;
         body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
-
     };
 
+    // Function to toggle the submenu visibility
     const toggleSubmenu = () => {
         submenuVisible.value = !submenuVisible.value;
     };
 
+    // Function to close both menu and submenu
     const closeMenu = () => {
         menuVisible.value = false;
         submenuVisible.value = false;
         const body = document.body;
         body.style.overflow = 'auto';
     };
-
 </script>
 
 <template>
@@ -39,12 +42,14 @@
 
         <!-- Navigation links -->
         <ul>
+            <!-- Router links for main menu items -->
             <li role="menuitem" @click="closeMenu"><router-link to="/">Home</router-link></li>
             <li role="menuitem" @click="closeMenu"><router-link to="/about">About</router-link></li>
             <li role="menuitem" @click="closeMenu"><router-link to="/third">Third</router-link></li>
 
+            <!-- Submenu with toggle and second-level menu items -->
             <li role="menuitem" @click="toggleSubmenu">
-               <a> More <ion-icon name="arrow-down-outline"></ion-icon></a> 
+                <a> More <ion-icon name="arrow-down-outline"></ion-icon></a>
                 <!-- Second-level menu -->
                 <ul v-show="submenuVisible" @click.stop>
                     <li role="menuitem" @click="closeMenu"><router-link to="/history">History</router-link></li>

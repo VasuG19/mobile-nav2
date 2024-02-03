@@ -80,6 +80,9 @@
   }
 /* Page Content */
 
+
+/* Quiries for responsive navigation */
+
   @media screen and (max-width: 768px) {
     nav {
       display: none;
