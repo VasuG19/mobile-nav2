@@ -1,43 +1,52 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+    import { ref } from 'vue'
+    import { RouterLink } from 'vue-router'
 
-const menuVisible = ref(false);
+    const menuVisible = ref(false);
 
-const toggleMenu = () => {
-    menuVisible.value = !menuVisible.value;
+    const toggleMenu = () => {
+        menuVisible.value = !menuVisible.value;
 
-    // Toggle body overflow to prevent scrolling when the menu is open
-    const body = document.body;
-    body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
+        // Toggle body overflow to prevent scrolling when the menu is open
+        const body = document.body;
+        body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
 
-    // Close the menu automatically after 20 seconds if it is opened
-    if (menuVisible.value) {
-        setTimeout(() => {
+        // Close the menu automatically after 20 seconds if it is opened
+        if (menuVisible.value) {
+            setTimeout(() => {
+                closeMenu();
+            }, 20000); // 20 seconds in milliseconds
+        }
+    };
+
+    const closeMenu = () => {
+        menuVisible.value = false;
+        const body = document.body;
+        body.style.overflow = 'auto';
+    };
+
+    const handleKeyPress = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
             closeMenu();
-        }, 20000); // 20 seconds in milliseconds
-    }
-};
-
-const closeMenu = () => {
-    menuVisible.value = false;
-    const body = document.body;
-    body.style.overflow = 'auto';
-};
+        }
+    };
 </script>
+
 
 <template>
     <!-- Push menu -->
-    <div class="menu" :class="{ active: menuVisible }">
+    <div role="menu" class="menu" :class="{ active: menuVisible }" @keydown.prevent="handleKeyPress">
 
         <!-- Toggle button to show/hide the menu -->
-        <div class="toggle" @click="toggleMenu"><ion-icon name="add-outline"></ion-icon></div>
+        <div role="button" class="toggle" @click="toggleMenu" @keydown.space.prevent="toggleMenu">
+            <ion-icon name="add-outline"></ion-icon>
+        </div>
 
         <!-- Navigation links -->
         <ul>
-            <li @click="closeMenu"><router-link to="/">Home</router-link></li>
-            <li @click="closeMenu"><router-link to="/about">About</router-link></li>
-            <li @click="closeMenu"><router-link to="/third">Third</router-link></li>
+            <li role="menuitem" @click="closeMenu"><router-link to="/">Home</router-link></li>
+            <li role="menuitem" @click="closeMenu"><router-link to="/about">About</router-link></li>
+            <li role="menuitem" @click="closeMenu"><router-link to="/third">Third</router-link></li>
         </ul>
     </div>
 </template>
@@ -96,7 +105,6 @@ const closeMenu = () => {
     .menu li a.router-link-exact-active {
         color: rgb(0, 161, 189);
     }
-
 
     /* Styling for the toggle button */
     .toggle {
