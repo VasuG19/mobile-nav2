@@ -1,37 +1,22 @@
-<script lang="ts">
-    import { ref } from 'vue'
-    import { RouterLink } from 'vue-router'
+<script setup lang="ts">
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
-    export default {
-        setup() {
-            // Creating a reactive variable to track menu visibility
-            let menuVisible = ref(false);
+const menuVisible = ref(false);
 
-            // Function to toggle the menu visibility
-            const toggleMenu = () => {
-                // Toggle the menu visibility
-                menuVisible.value = !menuVisible.value;
+const toggleMenu = () => {
+    menuVisible.value = !menuVisible.value;
 
-                // Toggle body overflow to prevent scrolling when the menu is open
-                const body = document.body;
-                body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
-            };
+    // Toggle body overflow to prevent scrolling when the menu is open
+    const body = document.body;
+    body.style.overflow = menuVisible.value ? 'hidden' : 'auto';
+};
 
-            // Function to close the menu when a link is selected
-            const closeMenu = () => {
-                menuVisible.value = false;
-                const body = document.body;
-                body.style.overflow = 'auto';
-            };
-
-            // Returning reactive data and functions to be used in the template
-            return {
-                menuVisible,
-                toggleMenu,
-                closeMenu,
-            };
-        },
-    };
+const closeMenu = () => {
+    menuVisible.value = false;
+    const body = document.body;
+    body.style.overflow = 'auto';
+};
 </script>
 
 <template>
@@ -42,9 +27,11 @@
         <div class="toggle" @click="toggleMenu"><ion-icon name="add-outline"></ion-icon></div>
 
         <!-- Navigation links -->
+        <ul>
             <li @click="closeMenu"><router-link to="/">Home</router-link></li>
             <li @click="closeMenu"><router-link to="/about">About</router-link></li>
             <li @click="closeMenu"><router-link to="/third">Third</router-link></li>
+        </ul>
     </div>
 </template>
 
@@ -59,30 +46,37 @@
         background: #1d1d1d;
         color: white;
         padding: 20px;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         transition: left 0.3s ease-in-out;
     }
 
     /* Styling for the navigation links */
-    .menu li {
+    .menu ul {
         list-style: none;
         padding-top: 10vh;
+        margin: 0;
+    }
+
+    .menu li {
+        padding: 10px 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Set the flex-direction to column */
         align-items: center;
-        margin-bottom: 10px;
-        cursor: pointer; /* Add cursor pointer to indicate clickable */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     /* Styling for the circular menu item links */
     .menu li a {
-        color: black;
-        border-radius: 50%;
-        transition: 0.5s;
-        cursor: pointer;
-        display: block; /* Ensures the anchor takes the full width of its container */
-        padding: 10px; /* Adds padding for better clickability */
-        text-decoration: none; /* Removes the default underline */
+        display: block;
+        width: 100%; /* Make the router-link fill the entire li area */
+        color: inherit;
+        font-size: large;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        padding: 10px; /* Added padding for better clickability */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Add a border between each link */
     }
 
     /* Styling for hover state of menu item links */
@@ -94,6 +88,7 @@
     .menu li a.router-link-exact-active {
         color: rgb(0, 161, 189);
     }
+
 
     /* Styling for the toggle button */
     .toggle {
@@ -123,5 +118,4 @@
     .menu.active {
         left: 0;
     }
-
 </style>

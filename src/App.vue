@@ -15,10 +15,7 @@
       </nav>
   </header>
 
-  <!-- Floating nav component -->
-  <div class="floating-menu">
-  </div>
-
+  <!-- Push Menu component -->
   <Menu/>
   
   <!-- Introduction section -->
@@ -73,15 +70,7 @@
 
 /* Large screen Nav */
 
-/* Mobile Nav */
-  .floating-menu {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 20px; /* Adjust margin as needed */
-    z-index: 1000; /* Adjust the z-index as needed */
-  }
-
+/* Page content */
   .intro {
     padding-top: 3vh;
   }
@@ -89,7 +78,7 @@
   .content {
     padding-top: 10vh;
   }
-/* Mobile Nav */
+/* Page Content */
 
   @media screen and (max-width: 768px) {
     nav {
