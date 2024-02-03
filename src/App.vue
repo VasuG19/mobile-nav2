@@ -17,8 +17,9 @@
 
   <!-- Floating nav component -->
   <div class="floating-menu">
-    <Menu/>
   </div>
+
+  <Menu/>
   
   <!-- Introduction section -->
   <div class='intro'>
@@ -97,7 +98,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    .menu {
+    .menu, .toggle {
       display: none;
     }
   }
