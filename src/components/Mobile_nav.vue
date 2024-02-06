@@ -113,6 +113,7 @@
     /* Styling for active state of router links */
     .menu li a.router-link-exact-active {
         color: rgb(0, 161, 189);
+        text-decoration: underline;
     }
 
     /* Styling for the toggle button */
