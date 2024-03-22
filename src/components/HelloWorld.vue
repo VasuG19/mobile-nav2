@@ -3,7 +3,7 @@
   <div class="greetings">
     <h1 class="blue">Mehtab Gill</h1>
     <h3>
-      Navigation Challenge
+      Accenture Project
     </h3>
   </div>
 </template>
