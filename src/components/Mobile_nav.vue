@@ -18,7 +18,6 @@ const toggleMenu = () => {
 
 // Function to toggle the submenu visibility
 const toggleSubmenu = () => {
-    // Toggle submenu visibility
     submenuVisible.value = !submenuVisible.value;
 };
 
