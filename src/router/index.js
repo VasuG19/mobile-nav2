@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import AboutView from '../views/AboutView.vue'
+import ChatBot from '../views/ChatBot.vue'
+import HistoryView from '../views/HistoryView.vue'
+import TeamView from '../views/TeamView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,22 +17,22 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: () => import('../views/AboutView.vue')
+      component: AboutView
     },
     {
-      path: '/third',
-      name: 'third',
-      component: () => import('../views/ThirdView.vue')
+      path: '/chatbot',
+      name: 'chatbot',
+      component: ChatBot
     },
     {
       path: '/history',
       name: 'history',
-      component: () => import('../views/HistoryView.vue')
+      component: HistoryView
     },
     {
       path: '/team',
       name: 'team',
-      component: () => import('../views/TeamView.vue')
+      component: TeamView
     }
   ]
 })

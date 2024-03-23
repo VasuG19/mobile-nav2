@@ -45,7 +45,7 @@ const closeMenu = () => {
             <!-- Router links for main menu items -->
             <li role="menuitem" @click="closeMenu"><router-link to="/">Home</router-link></li>
             <li role="menuitem" @click="closeMenu"><router-link to="/about">About</router-link></li>
-            <li role="menuitem" @click="closeMenu"><router-link to="/third">Third</router-link></li>
+            <li role="menuitem" @click="closeMenu"><router-link to="/chatbot">Chat Bot</router-link></li>
 
             <!-- Submenu with toggle and second-level menu items -->
             <li role="menuitem" @click="toggleSubmenu">

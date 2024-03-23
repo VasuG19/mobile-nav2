@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import HelloWorld from './components/HelloWorld.vue'
   import Menu from './components/Mobile_nav.vue'
+  import NavLinks from './components/NavLinks.vue'
 </script>
 
 
@@ -11,7 +12,7 @@
         <!-- Navigation links -->
         <RouterLink :to="{ path: '/' }" class="nav-link">Home</RouterLink>
         <RouterLink :to="{ path: '/about' }" class="nav-link">About</RouterLink>
-        <RouterLink :to="{ path: '/third' }" class="nav-link">Third</RouterLink>
+        <RouterLink :to="{ path: '/chatbot' }" class="nav-link">Chat Bot</RouterLink>
       </nav>
   </header>
 
