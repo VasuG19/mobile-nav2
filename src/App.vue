@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import HelloWorld from './components/HelloWorld.vue'
   import Menu from './components/Mobile_nav.vue'
-  import NavLinks from './components/NavLinks.vue'
 </script>
 
 
