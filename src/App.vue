@@ -12,8 +12,6 @@
         <RouterLink :to="{ path: '/' }" class="nav-link">Home</RouterLink>
         <RouterLink :to="{ path: '/about' }" class="nav-link">About</RouterLink>
         <RouterLink :to="{ path: '/office' }" class="nav-link">Office</RouterLink>
-        <RouterLink :to="{ path: '/history' }" class="nav-link">History</RouterLink>
-        <RouterLink :to="{ path: '/team' }" class="nav-link">Team</RouterLink>
       </nav>
   </header>
 
@@ -79,6 +77,8 @@
 
   .content {
     padding-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
 /* Page Content */
 
