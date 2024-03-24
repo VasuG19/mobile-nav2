@@ -1,7 +1,8 @@
 <template>
   <div class="about">
     <h1>Office page</h1>
-    <p>This page doesn't really have a point apart from showing functionality</p>
+    <p>This page displays a replica model of my Home Office.</p>
+    <p>The model was made using blender and then loaded onto the page using THREE.js.</p>
     <div id="three-container" class="canvas-container"></div>
   </div>
 </template>

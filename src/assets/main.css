@@ -14,3 +14,7 @@ a, .blue {
   padding: 3px;
 }
 
+.about{
+  max-width: 80vw;
+}
+
