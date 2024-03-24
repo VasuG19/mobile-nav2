@@ -33,7 +33,7 @@ export default {
       // Orbit Controls
       controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
-      controls.dampingFactor = 0.01;
+      controls.dampingFactor = 0.05;
       controls.enableZoom = false; // Disable zoom
 
       // Add lights
