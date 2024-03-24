@@ -12,6 +12,8 @@
         <RouterLink :to="{ path: '/' }" class="nav-link">Home</RouterLink>
         <RouterLink :to="{ path: '/about' }" class="nav-link">About</RouterLink>
         <RouterLink :to="{ path: '/office' }" class="nav-link">Office</RouterLink>
+        <RouterLink :to="{ path: '/history' }" class="nav-link">History</RouterLink>
+        <RouterLink :to="{ path: '/team' }" class="nav-link">Team</RouterLink>
       </nav>
   </header>
 
