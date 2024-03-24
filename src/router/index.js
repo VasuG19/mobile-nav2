@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
-import ChatBot from '../views/ChatBot.vue'
+import Office from '../views/Office.vue'
 import HistoryView from '../views/HistoryView.vue'
 import TeamView from '../views/TeamView.vue'
 
@@ -20,9 +20,9 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/chatbot',
-      name: 'chatbot',
-      component: ChatBot
+      path: '/office',
+      name: 'office',
+      component: Office
     },
     {
       path: '/history',

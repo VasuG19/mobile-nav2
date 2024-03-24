@@ -11,7 +11,7 @@
         <!-- Navigation links -->
         <RouterLink :to="{ path: '/' }" class="nav-link">Home</RouterLink>
         <RouterLink :to="{ path: '/about' }" class="nav-link">About</RouterLink>
-        <RouterLink :to="{ path: '/chatbot' }" class="nav-link">Chat Bot</RouterLink>
+        <RouterLink :to="{ path: '/office' }" class="nav-link">Office</RouterLink>
       </nav>
   </header>
 

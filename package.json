@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "orbit-controls-es6": "^2.0.1",
+    "three": "^0.162.0",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
